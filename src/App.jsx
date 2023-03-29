@@ -1,33 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+//Pages
+import Navbar from './Pages/Navbar'
+import FirstSection from './Pages/FirstSection'
+import SecondSection from './Pages/SecondSection'
+import ThirdSection from './Pages/ThirdSection'
+import FourthSection from './Pages/FourthSection'
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [overview, setOverview] = useState([
+    {
+      'aim': 'Our tutorial service aims to provide high-quality and personalized education to students of all ages and backgrounds. We strive to empower students with the knowledge and skills they need to succeed academically and beyond. We believe in fostering a love of learning and helping students build confidence in their abilities. Our mission is to make education accessible, engaging, and effective for everyone.',
+      'view': true 
+    },
+    {
+      'aim': 'Our vision is to be a leading provider of tutorial services, known for our innovative and effective teaching methods, exceptional tutors, and commitment to student success. We aim to transform the education industry by using technology to personalize learning, provide real-time feedback, and make education more interactive and engaging. Our vision is to empower students to achieve their full potential, regardless of their circumstances, and to create a world where education is a right, not a privilege.',
+      'view': false
+    }
+  ])
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar />
+      <FirstSection />
+      <SecondSection state={overview} />
+      <ThirdSection />
+      <FourthSection />
     </div>
   )
 }
